@@ -66,8 +66,10 @@ public class YantraController : MonoBehaviour {
 	{
 		if(m_YantraAnimator.isAnimating()) {
 			bool isPlaying = m_YantraAnimator.animate();
-			if (!isPlaying)
+			if (!isPlaying) {
 				resetAnimation();
+				toggleAnimation();   
+			}
 		}
 		controllerInput();
 	}
@@ -201,8 +203,7 @@ public class YantraController : MonoBehaviour {
 	void resetAnimation()
 	{
 		m_YantraAnimator.reset ();
-        m_YantraAnimator.play(); 
-		//toggleSliderText.text = "Play";    //comment the above line and uncomment this to disable looping
+		toggleSliderText.text = "Play";   
 	}
 
     void toggleInfo()
